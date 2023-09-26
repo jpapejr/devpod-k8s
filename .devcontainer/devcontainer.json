@@ -11,8 +11,7 @@
 	"features": {
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
 		"ghcr.io/devcontainers-contrib/features/curl-apt-get:1": {},
-		"ghcr.io/dhoeric/features/k9s:1": {},
-		"ghcr.io/devcontainers/features/powershell:1": {}
+		"ghcr.io/dhoeric/features/k9s:1": {}
 	},
 
 	// Configure tool-specific properties.
