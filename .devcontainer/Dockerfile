@@ -5,14 +5,14 @@ ENV IBMCLOUD_VERSION=2.20.0
 
 
 RUN apt update -y && \
-    apt install -y --no-install-recommends bash curl git && \
+    apt install -y --no-install-recommends bash curl git ca-certificates && \
     mkdir /root/bin && \
     curl -k https://download.clis.cloud.ibm.com/ibm-cloud-cli/2.20.0/IBM_Cloud_CLI_${IBMCLOUD_VERSION}_amd64.tar.gz -o out.tar.gz && \
     tar xvzf out.tar.gz && \
     ./Bluemix_CLI/install_bluemix_cli && \
-    ibmcloud plugin install container-service -r Bluemix && \
-    ibmcloud plugin update container-registry -r Bluemix && \
-    ibmcloud plugin install vpc-infrastructure -r Bluemix && \
+    ibmcloud plugin install container-service  && \
+    ibmcloud plugin update container-registry  && \
+    ibmcloud plugin install vpc-infrastructure  && \
     rm out.tar.gz && \
     curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
     mv kubectl /root/bin && \
