@@ -1,11 +1,8 @@
 FROM --platform=linux/amd64 alpine:3.8 
 
-ENV KUBECTL_VERSION=1.23.0
-ENV IBMCLOUD_VERSION=2.6.0
+ENV KUBECTL_VERSION=1.27.0
+ENV IBMCLOUD_VERSION=2.20.0
 
-RUN  adduser -G root -D -u 1000 -g 1000 nonroot
-
-WORKDIR "/home/nonroot"
 
 RUN apk update && \
     apk add --no-cache bash curl git && \
@@ -26,10 +23,6 @@ RUN echo 'export PATH="$PATH:/root/bin"' >> /home/nonroot/.bashrc
 RUN echo 'cat /etc/motd' >> /home/nonroot/.bashrc
 RUN echo 'Thank you for using the IBM Cloud-Native Docker Container. In your first login, we suggest you ibmcloud login to authenticate against the IBM cloud API.' > /etc/motd
 
-RUN chown -R 1000:0 /home/nonroot
-RUN chmod -R g+rwx /home/nonroot
-ENV HOME /home/nonroot
-USER 1000
 
 ENTRYPOINT ["bash"]
 EXPOSE 8080-8085
