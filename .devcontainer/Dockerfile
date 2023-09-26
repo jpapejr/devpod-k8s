@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 alpine:3.8 
+FROM --platform=linux/amd64 ubuntu:latest
 
 ENV KUBECTL_VERSION=1.27.0
 ENV IBMCLOUD_VERSION=2.20.0
